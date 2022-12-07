@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function questão56(){
+            const fraseUser = prompt("Diga uma frase, toda em minúscula. (Palavras como imbecil, ladrão e idiota serão censuradas.)")
+            let rmIdiota = fraseUser.replace(/idiota/gi, "******");
+            let rmImbecil = rmIdiota.replace(/imbecil/gi, "******");
+            let rmLadrão = rmImbecil.replace(/ladrão/gi, "******");
+            let rmLadrão2 = rmLadrão.replace(/ladrao/gi, "******");
+            const fraseFinal = rmLadrão2;
+
+            console.log(fraseFinal)
+            console.log("-------------------------------------------")
+        }
+
+        function questão82(){
+            const professores = ["Wanderson","Rosângela","Fabiana","Marcelo"];
+            const quesitos = ["explicação", "pontualidade","aulas legais"];
+            let notasWand = [];
+            let notasRosa = [];
+            let notasFabi = [];
+            let notasMarc = [];
+            let médias = [];
+
+            professores.forEach(professor => {
+                quesitos.forEach(quesito => {
+                    switch(professor){
+                        case "Wanderson":
+                            notasWand.push(parseInt(prompt(`Dê uma nota de 0 a 10, no quesito ${quesito} para o professor ${professor}`)));
+                            break;
+                        case "Rosângela":
+                            notasRosa.push(parseInt(prompt(`Dê uma nota de 0 a 10, no quesito ${quesito} para a professora ${professor}`)));
+                            break;
+                        case "Fabiana":
+                            notasFabi.push(parseInt(prompt(`Dê uma nota de 0 a 10, no quesito ${quesito} para a professora ${professor}`)));
+                            break;
+                        case "Marcelo":
+                            notasMarc.push(parseInt(prompt(`Dê uma nota de 0 a 10, no quesito ${quesito} para o professor ${professor}`)));
+                            break;
+                    }
+                });
+
+                switch(professor){
+                        case "Wanderson":
+                            médias.push(Math.floor(notasWand.reduce((acumulador, elemento) => acumulador += elemento) / notasWand.length));
+                            break;
+                        case "Rosângela":
+                            médias.push(Math.floor(notasRosa.reduce((acumulador1, elemento1) => acumulador1 += elemento1) / notasRosa.length));
+                            break;
+                        case "Fabiana":
+                            médias.push(Math.floor(notasFabi.reduce((acumulador2, elemento2) => acumulador2 += elemento2) / notasFabi.length));
+                            break;
+                        case "Marcelo":
+                            médias.push(Math.floor(notasMarc.reduce((acumulador3, elemento3) => acumulador3 += elemento3) / notasMarc.length));
+                            break;
+                }
+            });
+            
+            let i = 0;
+            médias.forEach(média => {
+                console.log(`A média do(a) professor(a) ${professores[i]} é ${média} pontos.`)
+                i++;
+            });
+            console.log("-------------------------------------------")
+        }
+
+        function questão104(){
+            const numeroUser = parseInt(prompt("Digite um número"));
+            const dobro = numeroUser * 2;
+            const triplo = numeroUser * 3;
+            const aoQuadrado = numeroUser * numeroUser;
+            const aoCubo = numeroUser * numeroUser * numeroUser;
+            const raizQuadrada = Math.sqrt(numeroUser);
+
+            console.log(`O dobro de ${numeroUser} é ${dobro}`);
+            console.log(`O triplo de ${numeroUser} é ${triplo}`);
+            console.log(`${numeroUser} ao quadrado é ${aoQuadrado}`);
+            console.log(`${numeroUser} ao cubo é ${aoCubo}`);
+            console.log(`A raiz quadrada de ${numeroUser} é ${raizQuadrada}`);
+            console.log("-----------------------------------");
+        }
+
+        function questão105(){
+            const numeros = [7,18,32,25,49];
+
+            numeros.forEach(numero => {
+                console.log(`------------------- ${numero} -------------------`)
+                console.log(`O dobro de ${numero} é ${numero * 2}`);
+                console.log(`O triplo de ${numero} é ${numero * 3}`);
+                console.log(`${numero} ao quadrado é ${numero * numero}`);
+                console.log(`${numero} ao cubo é ${numero * numero * numero}`);
+                console.log(`A raiz quadrada de ${numero} é ${Math.sqrt(numero)}`);
+            });
+
+            console.log("-------------------------------------------")
+        }
+
+        function questão108(){
+            const num1 = parseInt(prompt("Digite um número"));
+            const num2 = parseInt(prompt("Agora outro"));
+            const soma = num1 + num2;
+            const sub = num1 - num2;
+            const mult = num1 * num2;
+            const divi = num1 / num2;
+            const módulo = num1 % num2;
+            const exponen = num1 ** num2;
+            const conc = `${num1.toString()}${num2.toString()}`
+
+            console.log(`${num1} + ${num2} é igual a ${soma}`)
+            console.log(`${num1} - ${num2} é igual a ${sub}`)
+            console.log(`${num1} * ${num2} é igual a ${mult}`)
+            console.log(`${num1} / ${num2} é igual a ${divi}`)
+            console.log(`O resto de ${num1} dividido por ${num2} é igual a ${módulo}`)
+            console.log(`${num1} elevado a ${num2} é igual a ${exponen}`)
+            console.log(`A concatenação de ${num1} com ${num2} é ${conc}`)
+            console.log("-------------------------------------------")
+        }
+    </script>
+</head>
+<body>
+    <button onclick="questão56()">Questão 56</button>
+    <button onclick="questão82()">Questão 82</button>
+    <button onclick="questão104()">Questão 104</button>
+    <button onclick="questão105()">Questão 105</button>
+    <button onclick="questão108()">Questão 108</button>
+</body> 
+</html>
